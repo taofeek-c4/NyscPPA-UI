@@ -22,11 +22,11 @@ export default function JoinPPA() {
   useEffect(() => {
     // Redirect if user already has PPA
     if (user?.ppaId) {
-      navigate('/');
+      navigate('/dashboard');
     }
     // Redirect non-corps members
     if (user && user.role !== 'corps_member') {
-      navigate('/');
+      navigate('/dashboard');
     }
   }, [user, navigate]);
 
@@ -34,7 +34,7 @@ export default function JoinPPA() {
   useEffect(() => {
     const codePattern = /^PPA-[A-Z0-9]{6}$/;
     const formattedCode = joinCode.toUpperCase();
-    
+
     if (codePattern.test(formattedCode)) {
       validateJoinCode(formattedCode);
     } else {
@@ -57,7 +57,7 @@ export default function JoinPPA() {
 
   const handleJoin = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!isValid) {
       toast({
         title: 'Invalid Code',
@@ -76,9 +76,9 @@ export default function JoinPPA() {
         title: 'Successfully Joined!',
         description: 'You have been registered to the PPA.',
       });
-      
+
       setTimeout(() => {
-        navigate('/');
+        navigate('/dashboard');
       }, 2000);
     } catch (error: any) {
       toast({
@@ -105,14 +105,14 @@ export default function JoinPPA() {
             <div className="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-8 h-8 text-success" />
             </div>
-            
+
             <h2 className="text-2xl font-bold text-foreground mb-2">Welcome Aboard!</h2>
             <p className="text-muted-foreground mb-6">
               You have successfully joined the PPA. You can now start logging your daily activities.
             </p>
 
             <Button asChild className="w-full">
-              <Link to="/">
+              <Link to="/dashboard">
                 Go to Dashboard
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -162,9 +162,9 @@ export default function JoinPPA() {
               </p>
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full" 
+            <Button
+              type="submit"
+              className="w-full"
               size="lg"
               disabled={!isValid || isSubmitting}
             >
@@ -173,8 +173,8 @@ export default function JoinPPA() {
           </form>
 
           <div className="mt-6 text-center">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Skip for now

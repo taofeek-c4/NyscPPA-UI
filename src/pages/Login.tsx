@@ -24,7 +24,7 @@ export default function Login() {
         title: 'Welcome back!',
         description: 'You have been successfully logged in.',
       });
-      navigate('/');
+      navigate('/dashboard');
     } catch (error: unknown) {
       toast({
         title: 'Login Failed',

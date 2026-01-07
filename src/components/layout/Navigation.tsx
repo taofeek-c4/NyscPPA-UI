@@ -16,7 +16,7 @@ export function Navigation() {
 
   const navItems = [
     {
-      to: '/',
+      to: '/dashboard',
       label: 'Dashboard',
       icon: LayoutDashboard,
       show: true

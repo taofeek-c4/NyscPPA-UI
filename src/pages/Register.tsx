@@ -59,7 +59,7 @@ export default function Register() {
           title: 'Registration Successful!',
           description: 'Your account has been created.',
         });
-        navigate('/');
+        navigate('/dashboard');
       } else {
         await registerSupervisor(
           formData.name,
@@ -70,7 +70,7 @@ export default function Register() {
           title: 'Registration Successful!',
           description: 'Your supervisor account has been created.',
         });
-        navigate('/');
+        navigate('/dashboard');
       }
     } catch (error: unknown) {
       toast({

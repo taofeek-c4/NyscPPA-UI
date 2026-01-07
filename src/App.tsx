@@ -13,7 +13,9 @@ import JoinPPA from "./pages/JoinPPA";
 import Reports from "./pages/Reports";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+
 import NotFound from "./pages/NotFound";
+import Landing from "./pages/Landing";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +30,9 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/join-ppa" element={<JoinPPA />} />
-            <Route path="/" element={<DashboardLayout><Index /></DashboardLayout>} />
+
+            <Route path="/" element={<Landing />} />
+            <Route path="/dashboard" element={<DashboardLayout><Index /></DashboardLayout>} />
             <Route path="/my-logs" element={<DashboardLayout><MyLogs /></DashboardLayout>} />
             <Route path="/pending-approvals" element={<DashboardLayout><PendingApprovals /></DashboardLayout>} />
             <Route path="/create-ppa" element={<DashboardLayout><CreatePPA /></DashboardLayout>} />
